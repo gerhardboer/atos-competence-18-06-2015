@@ -6,7 +6,13 @@ Gebaseerd op https://github.com/angular/material-start
  * Installeer NodeJS voor de Node Package Manager (NPM) https://www.npmjs.org/
  * clone de repository
  * npm install
- 
+
+## Test
+ * node node_modules\protractor\bin\webdriver-manager start
+ Als de selenium server niet automatisch start, start dit commando om de seleniem server los op te starten.
+ Verwijder 'proctor_webdriver:e2e', uit de test task in GruntFile.js 
+
+
 ## Extra informatie
 
 ### Tutorials

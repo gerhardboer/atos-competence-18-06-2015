@@ -225,9 +225,12 @@ module.exports = function (grunt) {
         },
 
         protractor_webdriver: {
+            options: {
+                keepAlive : true
+            },
             e2e: {
                 options: {
-                    path: '/',
+                    path: '',
                     command: 'node_modules/protractor/bin/webdriver-manager start'
                 }
             }
@@ -256,6 +259,7 @@ module.exports = function (grunt) {
         'concurrent:test',
         'connect:test',
         'karma',
+        'protractor_webdriver:e2e',
         'protractor:e2e'
     ]);
 };
