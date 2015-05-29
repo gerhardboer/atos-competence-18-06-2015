@@ -5,9 +5,7 @@ Gebaseerd op https://github.com/angular/material-start
 ## Installatie
  * Installeer NodeJS voor de Node Package Manager (NPM) https://www.npmjs.org/
  * clone de repository
- * npm install (onderstaande commando's worden automatisch uitgevoerd)
- ** [webdriver update] Nodig om protractor te runnen
- ** [bower update] voor de angular dependencies
+ * npm install
  
 ## Extra informatie
 
