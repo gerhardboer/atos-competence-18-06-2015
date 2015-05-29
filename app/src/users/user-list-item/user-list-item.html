@@ -1,0 +1,8 @@
+<div>
+<md-button ng-click="vm.selectUser()" ng-class="{'selected' : vm.user === vm.selected }">
+    <img ng-src="{{vm.user.picture.thumbnail}}" class="md-avatar"/>
+    {{vm.user.name.first}} {{vm.user.name.last}}
+</md-button>
+
+<md-progress-circular md-mode="indeterminate" class="loading" ng-if="!vm.user"></md-progress-circular>
+</div>
