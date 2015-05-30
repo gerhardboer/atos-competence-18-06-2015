@@ -3,7 +3,7 @@
 Gebaseerd op https://github.com/angular/material-start
 
 ## Installatie
- * Installeer NodeJS voor de Node Package Manager (NPM) https://www.npmjs.org/
+ * Installeer NodeJS voor de Node Package Manager (NPM) https://www.npmjs.org/ 
  * clone de repository
  * npm install
 Als je een foutmelding krijgt op npm-gyp vanwege een missende PYTHON omgevingsvariabele, geen paniek. Dit is niet essentieel om het project te runnen.
