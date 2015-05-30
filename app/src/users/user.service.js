@@ -13,7 +13,7 @@
      */
     function UserService($http, $q) {
         // Promise-based API
-        this.loadAllUsers = loadAllUsers;
+        this.getUsers = loadAllUsers;
         this.getUser = getUser;
 
         function loadAllUsers() {
