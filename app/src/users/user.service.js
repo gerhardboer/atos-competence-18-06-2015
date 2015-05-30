@@ -10,6 +10,29 @@
      *
      * @returns {{loadAll: Function}}
      * @constructor
+     *
+     * DIFFERENCE BETWEEN SERVICE & FACTORY (from the angular source:)
+     *  because services are instantiated with new(), binding to the instance works!
+     *
+     *   var Ping = function($http) {
+     *     this.$http = $http;
+     *     this.send = send;
+     *
+     *     function send() { return $http.send('/ping')}
+     *   };
+     *   someModule.controller('Ctrl', ['ping', function(ping) {
+     *     ping.send();
+     *   }]);
+     *
+     * factories are used when only 1 function is needed, usually to wrap $http
+     *  $provide.factory('ping', ['$http', function($http) {
+     *     return function ping() {
+     *       return $http.send('/ping');
+     *     };
+     *   someModule.controller('Ctrl', ['ping', function(ping) {
+     *     ping();
+     *   }]);
+     *
      */
     function UserService($http, $q) {
         var random_user_url = 'http://api.randomuser.me';
