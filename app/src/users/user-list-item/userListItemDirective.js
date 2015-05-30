@@ -22,6 +22,8 @@
 
                 /**
                  * Select the current avatars
+                 * Since this is a two way binding, the value is also updated
+                 * in the UserController
                  * @param menuId
                  */
                 function selectUser() {

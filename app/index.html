@@ -16,14 +16,14 @@
 <body ng-app="starterApp" layout="column" ng-controller="UserController as vm">
 
 <md-toolbar layout="row">
-    <md-button class="menu" hide-gt-sm ng-click="vm.toggleList()" aria-label="Show User List">
+    <md-button class="menu" hide-gt-md ng-click="vm.toggleList()" aria-label="Show User List">
         <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
     <h1>Atos Competence meeting 18-06-2015</h1>
 </md-toolbar>
 
 <div flex layout="row">
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2" md-component-id="left">
         <md-list>
             <md-list-item ng-repeat="i in vm.numberOfUsers track by $index">
                <user-list-item selected="vm.selected"></user-list-item>
@@ -35,6 +35,7 @@
 
     <md-content flex id="content">
         <div ng-show="!vm.selected">
+            <h3 ng-if="$mdMedia('gt-md')">Open het menu</h3>
             <h3>Selecteer een gebruiker</h3>
         </div>
         <div ng-show="vm.selected">

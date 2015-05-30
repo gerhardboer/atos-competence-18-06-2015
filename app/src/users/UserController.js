@@ -23,7 +23,7 @@
         //since ng-repeat="4" does not exist yet:
         vm.numberOfUsers = new Array(4);
 
-        // Load all registered users
+
         $scope.$watch('vm.selected', function () {
             toggleUsersList();
         });
