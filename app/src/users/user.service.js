@@ -13,18 +13,19 @@
      */
     function UserService($http, $q) {
         // Promise-based API
-        this.getUsers = loadAllUsers;
+        this.getUsers = getUsers;
         this.getUser = getUser;
 
-        function loadAllUsers() {
-            return $q.all(getUsers(5));
+        function getUsers(numberOfUsers) {
+            numberOfUsers = numberOfUsers || 5;
+            return $q.all(getUserRequestList(numberOfUsers));
         }
 
         function getUser() {
             return new UserCall($http);
         }
 
-        function getUsers(userCount) {
+        function getUserRequestList(userCount) {
             var users = [];
             for (var i = 0; i < userCount; i++) {
                 users.push(new UserCall($http));

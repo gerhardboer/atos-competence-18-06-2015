@@ -24,7 +24,7 @@
         vm.numberOfUsers = new Array(4);
 
         $scope.$watch(function() { return  $mdMedia('sm'); }, function(small) {
-            vm.isLayoutSm = small;
+            vm.isLayoutSmallall = small;
         });
 
         $scope.$watch(function() { return  $mdMedia('max-width: 500px'); }, function(shouldHide) {

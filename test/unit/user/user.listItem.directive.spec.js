@@ -41,7 +41,7 @@ describe('userListItem Directive', function () {
     function compileUserListItemDirective() {
         //compile the directive with a reference to the $scope
         var elem = $compile('<user-list-item selected=""></user-list-item>')($scope);
-        //kickoff the angular cycle to resolve promises and parse the directive
+        //kick off the angular cycle to resolve promises and parse the directive
         $scope.$apply();
 
         return elem;
