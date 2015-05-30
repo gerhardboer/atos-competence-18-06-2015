@@ -32,10 +32,10 @@
     </md-sidenav>
 
     <md-content flex id="content">
-        <div ng-show="!vm.selected">
+        <div ng-show="!vm.selected" class="animate-show">
             <h3>Selecteer een gebruiker</h3>
         </div>
-        <div ng-show="vm.selected">
+        <div ng-show="vm.selected" class="animate-show">
             <md-card>
                 <img ng-src="{{vm.selected.picture.thumbnail}}" class="md-avatar face"/>
 
@@ -53,7 +53,7 @@
                 </md-card-content>
             </md-card>
 
-            <div flex layout="row" layout-margin layout-align="stretch">
+            <div flex layout-gt-sm="row" layout-sm="column" layout-margin layout-align="stretch">
                 <user-detail-card title="Location" flex>
                     <p>{{vm.selected.location.street}}</p>
 
