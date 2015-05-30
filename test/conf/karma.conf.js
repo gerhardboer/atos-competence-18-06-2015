@@ -16,7 +16,7 @@ module.exports = function (config) {
             'app/bower_components/angular-animate/angular-animate.js',
             'app/src/main.js',
             'app/src/**/*.js',
-            'test/**/*.spec.js',
+            'test/unit/**/*.spec.js',
             'app/src/users/**/*.html'
         ],
 

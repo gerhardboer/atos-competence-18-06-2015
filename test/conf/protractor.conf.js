@@ -2,14 +2,14 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    './**/*.js'
+    '../e2e/**/*.js'
   ],
 
   capabilities: {
     'browserName': 'chrome'
   },
 
-  baseUrl: 'http://localhost:9000',
+  baseUrl: 'http://localhost:9001',
   seleniumAddress: 'http://localhost:4444/wd/hub',
 
   chromeOnly: true,
