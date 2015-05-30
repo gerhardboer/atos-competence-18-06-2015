@@ -6,6 +6,7 @@ Gebaseerd op https://github.com/angular/material-start
  * Installeer NodeJS voor de Node Package Manager (NPM) https://www.npmjs.org/
  * clone de repository
  * npm install
+Als je een foutmelding krijgt op npm-gyp vanwege een missende PYTHON omgevingsvariabele, geen paniek. Dit is niet essentieel om het project te runnen.
 
 ## Test
  * node node_modules\protractor\bin\webdriver-manager start
