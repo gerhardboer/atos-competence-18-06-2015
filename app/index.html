@@ -28,14 +28,11 @@
             <md-list-item ng-repeat="i in vm.numberOfUsers track by $index">
                <user-list-item selected="vm.selected"></user-list-item>
             </md-list-item>
-
         </md-list>
-
     </md-sidenav>
 
     <md-content flex id="content">
         <div ng-show="!vm.selected">
-            <h3 ng-if="$mdMedia('gt-md')">Open het menu</h3>
             <h3>Selecteer een gebruiker</h3>
         </div>
         <div ng-show="vm.selected">
@@ -67,7 +64,9 @@
 
                 <user-detail-card title="Details" flex>
                     <p>{{vm.selected.email}}</p>
+
                     <p>{{vm.selected.password}}</p>
+
                     <p>{{vm.selected.salt}}</p>
                 </user-detail-card>
             </div>
