@@ -4,7 +4,7 @@
         .directive('userDetailCard', function() {
                 return {
                     restrict: 'E',
-                    templateUrl: 'src/users/user-detail-card/user-detail-card.html',
+                    templateUrl: 'src/users/detail-card/detail-card.html',
                     scope: {
                         title: '@'
                     },

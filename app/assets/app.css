@@ -167,3 +167,7 @@ span.name {
     position: absolute;
     min-width: 95%;
 }
+
+.fixed-width {
+    min-width: 100%;
+}

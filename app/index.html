@@ -26,7 +26,7 @@
     <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2" md-component-id="left">
         <md-list>
             <md-list-item ng-repeat="i in vm.numberOfUsers track by $index">
-               <user-list-item selected="vm.selected"></user-list-item>
+               <user-list-item selected="vm.selected" class="fixed-width"></user-list-item>
             </md-list-item>
         </md-list>
     </md-sidenav>
@@ -40,7 +40,7 @@
                 <img ng-src="{{vm.selected.picture.thumbnail}}" class="md-avatar face"/>
 
                 <md-card-content>
-                    <h2>{{vm.selected.name.first}}</h2>
+                    <h2>{{vm.selected.name.first}} {{vm.selected.name.last}}</h2>
 
                     <p>{{vm.selected.email}}</p>
 
@@ -83,10 +83,10 @@
 <!-- endbower -->
 
 <script src="src/main.js"></script>
-<script src="src/users/UserController.js"></script>
-<script src="src/users/UserService.js"></script>
-<script src="src/users/user-detail-card/userDetailCardDirective.js"></script>
-<script src="src/users/user-list-item/userListItemDirective.js"></script>
+<script src="src/users/user.controller.js"></script>
+<script src="src/users/user.service.js"></script>
+<script src="src/users/detail-card/user.detailCard.directive.js"></script>
+<script src="src/users/list-item/user.listItem.directive.js"></script>
 
 <script type="text/javascript">
 

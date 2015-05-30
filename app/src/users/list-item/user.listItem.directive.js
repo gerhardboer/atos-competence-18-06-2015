@@ -4,8 +4,7 @@
         .directive('userListItem', function (userService) {
             return {
                 restrict: 'E',
-                replace: true,
-                templateUrl: 'src/users/user-list-item/user-list-item.html',
+                templateUrl: 'src/users/list-item/list-item.html',
                 scope: {
                     selected: "="
                 },
