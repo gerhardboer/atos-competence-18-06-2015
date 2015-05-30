@@ -3,7 +3,7 @@
     angular
         .module('users')
         .controller('UserController', [
-            '$scope', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
+            '$scope', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$mdMedia',
             UserController
         ]);
 
@@ -14,7 +14,7 @@
      * @param avatarsService
      * @constructor
      */
-    function UserController($scope, $mdSidenav, $mdBottomSheet, $log, $q) {
+    function UserController($scope, $mdSidenav, $mdBottomSheet, $log, $q, $mdMedia) {
         var vm = this;
 
         vm.selected = null;
@@ -23,6 +23,13 @@
         //since ng-repeat="4" does not exist yet:
         vm.numberOfUsers = new Array(4);
 
+        $scope.$watch(function() { return  $mdMedia('sm'); }, function(small) {
+            vm.isLayoutSm = small;
+        });
+
+        $scope.$watch(function() { return  $mdMedia('max-width: 500px'); }, function(shouldHide) {
+            vm.hideContent = shouldHide
+        });
 
         $scope.$watch('vm.selected', function () {
             toggleUsersList();
@@ -40,7 +47,9 @@
             var pending = $mdBottomSheet.hide() || $q.when(true);
 
             pending.then(function () {
-                $mdSidenav('left').toggle();
+                $mdSidenav('left').toggle().then(function() {
+                    vm.sideNavOpen = $mdSidenav('left').isOpen();
+                });
             });
         }
 

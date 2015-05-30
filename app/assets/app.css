@@ -39,6 +39,9 @@ md-sidenav md-list {
 
 md-sidenav {
     position: static;
+}
+
+.overflow-x-hidden {
     overflow-x: hidden;
 }
 
@@ -51,7 +54,6 @@ md-sidenav {
 #content {
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 5px;
 }
 
 #content .md-button.share {
@@ -142,6 +144,10 @@ span.name {
     width: 192px;
     margin: auto;
     margin-top: 50px;
+}
+
+.face-small {
+    width: 144px;
 }
 
 .list {

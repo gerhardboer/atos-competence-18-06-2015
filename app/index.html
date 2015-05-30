@@ -23,7 +23,7 @@
 </md-toolbar>
 
 <div flex layout="row">
-    <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2" md-component-id="left">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2 overflow-x-hidden" md-component-id="left">
         <md-list>
             <md-list-item ng-repeat="i in vm.numberOfUsers track by $index">
                <user-list-item selected="vm.selected" class="fixed-width"></user-list-item>
@@ -31,15 +31,16 @@
         </md-list>
     </md-sidenav>
 
-    <md-content flex id="content">
+    <md-content flex id="content" ng-hide="vm.hideContent && vm.sideNavOpen">
         <div ng-show="!vm.selected" class="animate-show">
             <h3>Selecteer een gebruiker</h3>
         </div>
         <div ng-show="vm.selected" class="animate-show">
-            <md-card>
-                <img ng-src="{{vm.selected.picture.thumbnail}}" class="md-avatar face"/>
+            <md-card class=" overflow-x-hidden">
+                <img ng-src="{{vm.selected.picture.thumbnail}}" class="md-avatar face" ng-class="{'face-small' : vm.isLayoutSm}"/>
 
                 <md-card-content>
+
                     <h2>{{vm.selected.name.first}} {{vm.selected.name.last}}</h2>
 
                     <p>{{vm.selected.email}}</p>
