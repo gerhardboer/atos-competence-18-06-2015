@@ -12,15 +12,20 @@
      * @constructor
      */
     function UserService($http, $q) {
-        // Promise-based API
+        var random_user_url = 'http://api.randomuser.me';
+
         this.getUsers = getUsers;
         this.getUser = getUser;
 
         function getUsers(numberOfUsers) {
+            //if numberOfUsers is falsy (null, undefined, 0, '', NaN, false), set to 5
             numberOfUsers = numberOfUsers || 5;
+
+            //get the nunmber of users from http://api.randomuser.me, and return a promise
             return $q.all(getUserRequestList(numberOfUsers));
         }
 
+        //get a single user
         function getUser() {
             return new UserCall($http);
         }
@@ -33,15 +38,18 @@
             return users;
         }
 
+        //Fancy object to get a User from http://api.randomuser.me
         function UserCall($http) {
             var userCall = this;
+            //register the method on this object against memory leaks
             userCall.extractUser = function (response) {
                 return response.data.results.map(function (user) {
                     return user.user;
                 })[0]
             };
 
-            return $http.get('http://api.randomuser.me').then(userCall.extractUser);
+            //return a promise which will return a user from the JSON call
+            return $http.get(random_user_url).then(userCall.extractUser);
         }
     }
 })

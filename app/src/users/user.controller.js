@@ -20,17 +20,20 @@
         vm.selected = null;
         vm.toggleList = toggleUsersList;
         vm.share = share;
-        //since ng-repeat="4" does not exist yet:
-        vm.numberOfUsers = new Array(4);
+        vm.numberOfUsers = new Array(4);        //since ng-repeat="4" does not exist yet:
 
-        $scope.$watch(function() { return  $mdMedia('sm'); }, function(small) {
-            vm.isLayoutSmallall = small;
+        //$mdMedia is updated everytime the browser is resized
+        $scope.$watch(function() { return  $mdMedia('sm'); }, function(isResponsiveSmallACtive) {
+            vm.isLayoutSmall = isResponsiveSmallACtive;
         });
 
+        //$mdMedia is updated everytime the browser is resized
         $scope.$watch(function() { return  $mdMedia('max-width: 500px'); }, function(shouldHide) {
             vm.hideContent = shouldHide
         });
 
+        //this value is set in the user-list-directive.
+        //because of the two-way binding {selected: '='} this watch is triggered
         $scope.$watch('vm.selected', function () {
             toggleUsersList();
         });

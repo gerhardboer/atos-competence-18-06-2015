@@ -20,22 +20,22 @@ describe('UserController', function () {
     describe('when the user resizes the screen', function () {
         it('to smaller than 500px, then vm.isLayoutSmall should be true', function () {
             smallerThan500px = true;
-            expect(controller.isLayoutSmallall).toBe(undefined);
+            expect(controller.isLayoutSmall).toBe(undefined);
 
             //kickoff the angular cycle to trigger the $watch-es
             $scope.$apply();
 
-            expect(controller.isLayoutSmallall).toBe(true);
+            expect(controller.isLayoutSmall).toBe(true);
         });
 
         it('to larger  than 500px, then vm.isLayoutSmall should be false', function () {
             smallerThan500px = false;
-            expect(controller.isLayoutSmallall).toBe(undefined);
+            expect(controller.isLayoutSmall).toBe(undefined);
 
             //kickoff the angular cycle to trigger the $watch-es
             $scope.$apply();
 
-            expect(controller.isLayoutSmallall).toBe(false);
+            expect(controller.isLayoutSmall).toBe(false);
         });
     });
 });

@@ -19,7 +19,7 @@ describe('my app', function() {
   });
 
   it('should load a list of users', function() {
-    expect(users.count()).toBeGreaterThan(1);
+    expect(users.count()).toBeGreaterThan(100);
   });
 
   describe('selecting a user', function() {
