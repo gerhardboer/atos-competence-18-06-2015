@@ -1,4 +1,4 @@
-# Atons Competence meeting 18-06-2015
+# Atos Competence meeting 18-06-2015
 
 Gebaseerd op https://github.com/angular/material-start
 
