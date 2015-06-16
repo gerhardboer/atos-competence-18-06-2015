@@ -80,10 +80,10 @@
 
                 this.user = user;
                 this.items = [
-                    {name: 'Phone', icon: 'phone', icon_url: 'assets/svg/phone.svg'},
-                    {name: 'Twitter', icon: 'twitter', icon_url: 'assets/svg/twitter.svg'},
-                    {name: 'Google+', icon: 'google_plus', icon_url: 'assets/svg/google_plus.svg'},
-                    {name: 'Hangout', icon: 'hangouts', icon_url: 'assets/svg/hangouts.svg'}
+                    {name: 'Phone', icon: 'phone', icon_url: 'assets/svg/phone.svg', value:  user.phone},
+                    {name: 'Twitter', icon: 'twitter', icon_url: 'assets/svg/twitter.svg', value: '@' + user.username},
+                    {name: 'Google+', icon: 'google_plus', icon_url: 'assets/svg/google_plus.svg', value: user.email},
+                    {name: 'Hangout', icon: 'hangouts', icon_url: 'assets/svg/hangouts.svg', value: '@' + user.email}
                 ];
                 this.performAction = function (action) {
                     $mdBottomSheet.hide(action);

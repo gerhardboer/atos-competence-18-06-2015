@@ -8,23 +8,37 @@ describe('Users', function () {
 
     beforeEach(function () {
         page.get();
+        browser.waitForAngular();
     });
 
-    it('should load a list of users', function () {
-        expect(page.users.count()).toBeGreaterThan(1);
+    describe('when the page is initialized', function () {
+        it('then it should load a list of users', function () {
+            expect(page.users.count()).toBe(4);
+        });
     });
 
-    describe('selecting a user', function () {
+    describe('when selecting a user', function () {
+
+        it('then it should show the detailed view of the user', function () {
+            expect(page.mainContent.userLoaded).toBeFalsy();
+            expect(page.mainContent.startupText).toBe('Selecteer een gebruiker');
+
+            page.selectRandomUser();
+
+            expect(page.mainContent().userLoaded).toBeTruthy();
+            expect(page.mainContent().startupText).toBe('');
+        });
+    });
+
+    xdescribe('when opening the contact sheet', function () {
 
         beforeEach(function () {
-
+            page.selectRandomUser();
         });
 
-        it('should set focus on first Share option in Contact Share view', function () {
-            //share.actions().then(function(items) {
-            //  expect(items[0].getAttribute('id')).toEqual(share.focusedItem().getAttribute('id'));
-            //});
+        it('then it should show the phone number', function () {
+            //expect(page.contactSheet().phone).toBe('555-555-555');
+            //expect(page.mainContent().startupText).toBe('');
         });
-
     });
 });

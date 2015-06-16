@@ -1,24 +1,38 @@
+var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
+
 exports.config = {
-  allScriptsTimeout: 11000,
+    rootElement: 'body',
 
-  specs: [
-    '../e2e/**/*.js'
-  ],
+    allScriptsTimeout: 110000,
 
-  capabilities: {
-    'browserName': 'chrome'
-  },
+    specs: [
+        '../e2e/**/*.spec.js'
+    ],
 
-  baseUrl: 'http://localhost:9001',
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+    capabilities: {
+        'browserName': 'chrome'
+    },
 
-  chromeOnly: true,
-  chromeDriver: '../../node_modules/protractor/selenium/chromedriver',
-  seleniumServerJar: '../../node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
+    baseUrl: 'http://localhost:9001',
+    seleniumAddress: 'http://localhost:4444/wd/hub',
 
-  framework: 'jasmine',
+    chromeOnly: true,
+    chromeDriver: '../../node_modules/protractor/selenium/chromedriver',
+    seleniumServerJar: '../../node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
 
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
-  }
+    framework: 'jasmine2',
+
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 30000
+    },
+
+    onPrepare: function () {
+        jasmine.getEnv().addReporter(
+            new HtmlScreenshotReporter({
+                dest: 'target/screenshots',
+                filename: 'report.html'
+            })
+        );
+    }
 };

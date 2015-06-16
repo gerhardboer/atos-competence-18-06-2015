@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/app.css"/>
 </head>
 
-<body ng-app="users" layout="column" ng-controller="UserController as vm">
+<body ng-app="usersDev" layout="column" ng-controller="UserController as vm">
 
 <md-toolbar layout="row">
     <md-button class="menu" hide-gt-md ng-click="vm.toggleList()" aria-label="Show User List">
@@ -26,7 +26,7 @@
     <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2 overflow-x-hidden" md-component-id="left">
         <md-list>
             <md-list-item ng-repeat="i in vm.numberOfUsers track by $index">
-               <user-list-item selected="vm.selected" class="fixed-width"></user-list-item>
+                <user-list-item selected="vm.selected" class="fixed-width"></user-list-item>
             </md-list-item>
         </md-list>
     </md-sidenav>
@@ -37,7 +37,8 @@
         </div>
         <div ng-show="vm.selected" class="animate-show">
             <md-card class=" overflow-x-hidden">
-                <img ng-src="{{vm.selected.picture.thumbnail}}" class="md-avatar face" ng-class="{'face-small' : vm.isLayoutSmall}"/>
+                <img ng-src="{{vm.selected.picture.thumbnail}}" class="md-avatar face"
+                     ng-class="{'face-small' : vm.isLayoutSmall}"/>
 
                 <md-card-content>
 
@@ -46,7 +47,8 @@
                     <p>{{vm.selected.email}}</p>
 
                     <div class="md-actions" layout="row" layout-align="end bottom">
-                        <md-button class="share md-fab md-primary md-mini" md-no-ink ng-click="vm.share($event)" aria-label="Share">
+                        <md-button class="share md-fab md-primary md-mini" md-no-ink ng-click="vm.share($event)"
+                                   aria-label="Share">
                             <md-icon md-svg-icon="share"></md-icon>
                         </md-button>
                     </div>
@@ -92,24 +94,7 @@
 <script type="text/javascript">
 
     angular
-            .module('starterApp', ['ngMaterial', 'users'])
-            .config(function ($mdThemingProvider, $mdIconProvider) {
-
-                $mdIconProvider
-                        .defaultIconSet("./assets/svg/avatars.svg", 128)
-                        .icon("menu", "./assets/svg/menu.svg", 24)
-                        .icon("share", "./assets/svg/share.svg", 24)
-                        .icon("google_plus", "./assets/svg/google_plus.svg", 512)
-                        .icon("hangouts", "./assets/svg/hangouts.svg", 512)
-                        .icon("twitter", "./assets/svg/twitter.svg", 512)
-                        .icon("phone", "./assets/svg/phone.svg", 512);
-
-                $mdThemingProvider.theme('default')
-                        .primaryPalette('blue')
-                        .accentPalette('red');
-
-            });
-
+            .module('usersDev', ['users'])
 </script>
 
 </body>
