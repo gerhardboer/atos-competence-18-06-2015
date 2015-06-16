@@ -68,7 +68,7 @@
             userCall.extractUser = function (response) {
                 return response.data.results.map(function (user) {
                     return user.user;
-                })[0]
+                })[0];
             };
 
             //return a promise which will return a user from the JSON call

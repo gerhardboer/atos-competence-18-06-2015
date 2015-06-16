@@ -1,5 +1,5 @@
 (function () {
-
+    "use strict";
     angular
         .module('users')
         .controller('UserController', [
@@ -29,7 +29,7 @@
 
         //$mdMedia is updated everytime the browser is resized
         $scope.$watch(function() { return  $mdMedia('max-width: 500px'); }, function(shouldHide) {
-            vm.hideContent = shouldHide
+            vm.hideContent = shouldHide;
         });
 
         //this value is set in the user-list-directive.
@@ -70,7 +70,9 @@
                 bindToController: true,
                 targetEvent: $event
             }).then(function (clickedItem) {
-                clickedItem && $log.debug(clickedItem.name + ' clicked!');
+                if(clickedItem) {
+                    $log.debug(clickedItem.name + ' clicked!');
+                }
             });
 
             /**
