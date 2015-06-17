@@ -1,21 +1,23 @@
 describe('UserController', function () {
+    var $scope, controller;
 
     beforeEach(module('users'));
+    beforeEach(setupInjectables);
 
-    var $scope, controller, smallerThan500px;
+    function setupInjectables() {
+        inject(function ($rootScope, $controller) {
+            //create a new scope
+            $scope = $rootScope.$new();
 
-    beforeEach(inject(function ($rootScope, $controller) {
-        //create a new scope
-        $scope = $rootScope.$new();
-
-        //create a new UserController with a mocked $mdMedia service
-        controller = $controller('UserController', {
-            $scope: $scope,
-            $mdMedia: function () {
-                return smallerThan500px;
-            }
-        })
-    }));
+            //create a new UserController with a mocked $mdMedia service
+            controller = $controller('UserController', {
+                $scope: $scope,
+                $mdMedia: function () {
+                    return smallerThan500px;
+                }
+            })
+        });
+    }
 
     describe('when the user resizes the screen', function () {
         it('to smaller than 500px, then vm.isLayoutSmall should be true', function () {
