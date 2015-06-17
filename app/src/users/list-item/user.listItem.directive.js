@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('users')
-        .directive('userListItem', function (userService) {
+        .directive('userListItem', function () {
             return {
                 restrict: 'E',                                      //only <user-list-item><user-list-item> is allowed
                 templateUrl: 'src/users/list-item/list-item.html',  //reference to the HTML. NOTE: to test this, see karma.conf ngHtml2JsPreprocessor
@@ -17,7 +17,6 @@
                 var vm = this;
 
                 vm.selectUser = selectUser;
-                retrieveUser();
 
                 /**
                  * Select the current avatars
@@ -30,12 +29,10 @@
                 }
 
                 /**
-                 * Get the user from the service and bind the result to the controller instance
+                 * Get the user from the userService and bind the result to the controller instance
                  */
                 function retrieveUser() {
-                    userService.getUser().then(function (user) {
-                        vm.user = user;
-                    });
+                    /** WRITE YOUR CODE HERE TO PASS THE TEST **/
                 }
             }
         });

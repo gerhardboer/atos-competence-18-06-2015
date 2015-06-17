@@ -17,22 +17,22 @@
     function UserController($scope, $mdSidenav, $mdBottomSheet, $log, $q, $mdMedia) {
         var vm = this;
 
+        vm.share = share;
         vm.selected = null;
         vm.toggleList = toggleUsersList;
-        vm.share = share;
         vm.numberOfUsers = new Array(4);        //since ng-repeat="4" does not exist yet:
 
         //$mdMedia is updated everytime the browser is resized
         $scope.$watch(function() { return  $mdMedia('sm'); }, function(isResponsiveSmallACtive) {
-            vm.isLayoutSmall = isResponsiveSmallACtive;
+            /** WRITE YOUR CODE HERE TO PASS THE TEST **/
         });
 
         //$mdMedia is updated everytime the browser is resized
         $scope.$watch(function() { return  $mdMedia('max-width: 500px'); }, function(shouldHide) {
-            vm.hideContent = shouldHide;
+            /** WRITE YOUR CODE HERE TO PASS THE TEST **/
         });
 
-        //this value is set in the user-list-directive.
+        //this value is changed in the user-list-directive.
         //because of the two-way binding {selected: '='} this watch is triggered
         $scope.$watch('vm.selected', function () {
             toggleUsersList();
