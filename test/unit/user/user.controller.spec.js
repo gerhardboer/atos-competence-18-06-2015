@@ -1,43 +1,35 @@
 describe('UserController', function () {
-    var $scope, controller;
+    var $scope, controller, smallerThan500px;
 
     beforeEach(module('users'));
     beforeEach(setupInjectables);
 
     function setupInjectables() {
-        inject(function ($rootScope, $controller) {
+        inject(function () {
             //create a new scope
-            $scope = $rootScope.$new();
 
             //create a new UserController with a mocked $mdMedia service
-            controller = $controller('UserController', {
-                $scope: $scope,
-                $mdMedia: function () {
-                    return smallerThan500px;
-                }
-            })
+
+                //$mdMedia: function () {
+                //    return smallerThan500px;
+                //}
+
         });
     }
 
     describe('when the user resizes the screen', function () {
         it('to smaller than 500px, then vm.isLayoutSmall should be true', function () {
-            smallerThan500px = true;
             expect(controller.isLayoutSmall).toBe(undefined);
 
             //kickoff the angular cycle to trigger the $watch-es
-            $scope.$apply();
 
-            expect(controller.isLayoutSmall).toBe(true);
         });
 
         it('to larger  than 500px, then vm.isLayoutSmall should be false', function () {
-            smallerThan500px = false;
             expect(controller.isLayoutSmall).toBe(undefined);
 
             //kickoff the angular cycle to trigger the $watch-es
-            $scope.$apply();
 
-            expect(controller.isLayoutSmall).toBe(false);
         });
     });
 });

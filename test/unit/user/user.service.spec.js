@@ -24,13 +24,9 @@ describe('UserController', function () {
 
     describe('When userService.getUser() is called', function () {
         it('then it should retrieve a random user from randomuser.org', function () {
-            mockRandomUserCall(200, {name: 'test'});
+            //mockRandomUserCall with {name: 'test'}
 
             //wait for the userService to finish its tasks, then check the values
-            userService.getUser().then(function (user) {
-                expect(user).toBeDefined();
-                expect(user.name).toBe('test');
-            });
 
             //checks if there are no outstanding expect requests in angular
             //this means that the code did not do as expected, since no call was made
@@ -43,14 +39,8 @@ describe('UserController', function () {
             var expectedUserCallCount = 5;
 
             //every single expected call has to be expected by the $httpBackend
-            for(var i = 0; i < expectedUserCallCount; i++) {
-                mockRandomUserCall(200, {name: 'test'});
-            }
 
-            //wait for the userService to finish its tasks, then check the values
-            userService.getUsers(5).then(function (users) {
-                expect(users.length).toBe(expectedUserCallCount);
-            });
+            //wait for the userService to finish its tasks, then check the values if 5 users are returned
 
             //checks if there are no outstanding expect requests in angular
             //this means that the code did not do as expected, since fewer calls has been made than expected
